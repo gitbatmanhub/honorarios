@@ -1,0 +1,13 @@
+<mxfile host="app.diagrams.net" modified="2024-06-19T19:52:18.535Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="3u5gqF7w3W6JLLt8a-Dv" version="24.5.5" type="github">
+  <diagram name="Página-1" id="_WE28FnadgoybFpJPaSw">
+    <mxGraphModel dx="1120" dy="460" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="upnxExd1PIan7JR3uo-e-1" value="&lt;div&gt;1 Leer Excel (Producción {mes})&lt;/div&gt;&lt;div&gt;2. Extraer columnas (medico, sucursal, costo, concepto)&lt;/div&gt;&lt;div&gt;3. Guardarlos en json&lt;/div&gt;&lt;div&gt;4. Agrupas por medico&lt;/div&gt;&lt;div&gt;5. Agruparlos por sucursal&lt;/div&gt;&lt;div&gt;6. Asignarle el precio&lt;/div&gt;&lt;div&gt;7. Organizar.&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; Sucursal - Rango de Fechas - Doctores - Servicios - Costo&lt;/div&gt;&lt;div&gt;8. Calcular costo&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;Calcular cuanta producción tiene un doctor en una sucursal&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;en un/todos servicios específicos.&lt;/div&gt;&lt;div&gt;9. Editar los porcentajes de procedimientos.&lt;/div&gt;&lt;div&gt;10. Calcular la suma de todos los procedimientos (pvp) y multiplicarlos&lt;/div&gt;&lt;div&gt;11. Escribir Excel con data&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="30" y="58" width="400" height="210" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
