@@ -268,3 +268,5 @@ function getAllPagarProcedimientosMedico(cod_doctor, cod_grupo, porcentajePago){
 
 getAllPagarConsultaMedico(89, 2, 9);
 getAllPagarProcedimientosMedico(87, 7, 0.3)
+
+
