@@ -268,3 +268,21 @@ function getAllPagarProcedimientosMedico(cod_doctor, cod_grupo, porcentajePago){
 
 getAllPagarConsultaMedico(89, 2, 9);
 getAllPagarProcedimientosMedico(87, 7, 0.3)
+
+const hora1= '15:12:40';
+const hora2= '15:12:40';
+
+function convertirHora(hora) {
+    const [hh, mm, ss] = hora.split(':');
+    const fecha = new Date();
+    fecha.setHours(hh, mm, ss, 0);
+    return fecha;
+}
+
+if (convertirHora(hora1) > convertirHora(hora2)){
+    console.log("Es mayor")
+}else if(convertirHora(hora1) < convertirHora(hora2)){
+    console.log("Es menor")
+}else{
+    console.log("Son iguales")
+}
