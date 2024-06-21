@@ -241,6 +241,7 @@ function getAllPagarConsultaMedico(cod_doctor, cod_grupo, valorPago){
     let nrVeces = 0;        
     for(let i=0; datosPrueba.length > i; i++){
         if (datosPrueba[i].cod_grupo === cod_grupo && datosPrueba[i].cod_medico === cod_doctor){
+          //console.log(convertirHora(datosPrueba[i].hora_atencion))
             nrVeces ++
         }
     }
@@ -266,8 +267,8 @@ function getAllPagarProcedimientosMedico(cod_doctor, cod_grupo, porcentajePago){
     console.log(`El doctor ha atendido ${nrVeces} procedimientos y ganará ${pagarDoctor.toFixed(2)}$`);
 }
 
-getAllPagarConsultaMedico(89, 2, 9);
-getAllPagarProcedimientosMedico(87, 7, 0.3)
+//getAllPagarConsultaMedico(89, 2, 9);
+//getAllPagarProcedimientosMedico(87, 7, 0.3)
 
 
 const hora1= '15:12:40';
@@ -288,3 +289,120 @@ if (convertirHora(hora1) > convertirHora(hora2)){
     console.log("Son iguales")
 }
 
+
+//iterar sobre cada fecha en el array
+
+//detectar ek dia segun la fecha 
+
+//determinar la hora delimitante segun el dia de la semana (lunes a viernes > 12:20:00 sabados > 10:00:00)
+
+//SI el doctor tiene tipo de pago consulta/procecdimiento y NO es menor a la hora delimitante sumar por consulta y pvp de procedimientos
+
+
+function calcularCostoConsultas(fecha_atencion, cod_doctor, cod_grupo, valorPago) {
+  // Definimos las variables para almacenar el costo total por consultas y procedimientos
+  
+
+  // Iteramos sobre cada fecha en el array
+  datosPrueba.forEach(fecha_atencion => {
+      // Detectamos el día de la semana según la fecha
+      let diaSemana = fecha_atencion.getDay(); // 0 = Domingo, 1 = Lunes, ..., 6 = Sábado
+
+      // Determinamos la hora delimitante según el día de la semana
+      let horaDelimitante = new Date(fecha_atencion);
+      if (diaSemana >= 0 && diaSemana <= 5) {
+          // Lunes a Viernes > 12:20:00
+          horaDelimitante.setHours(12, 20, 0); // 12:20:00
+      } else if (diaSemana === 6) {
+          // Sábado > 10:00:00
+          horaDelimitante.setHours(10, 0, 0); // 10:00:00
+      }
+
+      // Obtener tipo de pago (consulta/procedimiento) y hora de la consulta
+       // Función hipotética para obtener tipo de pago
+      let horaConsulta = obtenerHoraConsulta(); // Función hipotética para obtener hora de la consulta
+
+      // Verificar si no es menor a la hora delimitante
+      if (horaConsulta >= horaDelimitante) {
+          // Sumar por consulta y PVP de procedimientos
+          let nrVeces = 0;        
+    for(let i=0; datosPrueba.length > i; i++){
+        if (datosPrueba[i].cod_grupo === cod_grupo && datosPrueba[i].cod_medico === cod_doctor){
+          console.log(convertirHora(datosPrueba[i].hora_atencion))
+            nrVeces ++
+        }
+    }
+    var pagarDoctor = nrVeces * valorPago;
+    console.log(`El doctor ha atendido ${nrVeces} servicios y ganará ${pagarDoctor}$`);
+      }
+  });
+
+  // Retornar los costos calculados
+  //return { costoConsultas, costoProcedimientos };
+  calcularCostoConsultas(87, 2, 9)
+}
+
+
+datosProcedimiento = [
+  {
+    "cod_procedimiento": 1,
+    "procedimientos": "Col",
+  },
+  {
+    "cod_procedimiento": 2,
+    "procedimientos": "Col",
+  },
+  {
+    "cod_procedimiento": 1,
+    "procedimientos": "Col",
+  },
+  {
+    "cod_procedimiento": 2,
+    "procedimientos": "Endo",
+  },
+  {
+    "cod_procedimiento": 2,
+    "procedimientos": "Col",
+  },
+  {
+    "cod_procedimiento": 1,
+    "procedimientos": "Col",
+  }
+]
+
+
+function validate(procedimientos){
+  let proc2 = 50;
+  let proc1 = 65;
+  let count1 = 0;
+  let count2 = 0;
+  let totalPagar = 0;
+  let sumCount = 0;
+  for (let i =0; procedimientos.length > i; i++){
+    if(procedimientos[i].cod_procedimiento === 1){
+      count1 ++;
+    }else if(procedimientos[i].cod_procedimiento === 2){
+      count2 ++;
+    }else{
+      console.log("No se que haces flaco, ese dato no va")
+    }
+    //console.log(procedimientos[i].cod_procedimiento);
+  }
+
+  if(count1 === count2){
+    sumCount=count1+count2;
+    totalPagar = sumCount * 50;
+    console.log(`La cantidad total a pagarles es: ${totalPagar}`);
+
+  }else if (count1 > count2){
+    sumCount = count1 + count2; 
+    let diferencia = 15;
+    let convertir = count2 * diferencia;
+    let totalSumado = (proc1 * count1) + (proc2 * count2);
+    totalPagar = totalSumado - convertir;
+    console.log(`La cantidad total a pagarles es: ${totalPagar}`);
+  }
+
+}
+
+validate(datosProcedimiento);
