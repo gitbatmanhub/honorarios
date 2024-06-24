@@ -7,7 +7,7 @@ const datosPrueba =
       "orden_detalle": 4066448,
       "id_servicio": 857,
       "servicio": "CONSULTA PSICOLOGÍA",
-      "fecha_atencion": "2024-05-02",
+      "fecha_atencion": "2024-05-05",
       "hora_agenda": "14:20:00",
       "hora_atencion": "14:35:56",
       "hc": 279810,
@@ -30,7 +30,7 @@ const datosPrueba =
       "orden_detalle": 4060706,
       "id_servicio": 9,
       "servicio": "CONSULTA DERMATOLOGÍA",
-      "fecha_atencion": "2024-05-02",
+      "fecha_atencion": "2024-05-04",
       "hora_agenda": "17:20:00",
       "hora_atencion": "17:24:13",
       "hc": 108678,
@@ -405,4 +405,69 @@ function validate(procedimientos){
 
 }
 
-validate(datosProcedimiento);
+//validate(datosProcedimiento);
+//const fechas = []
+//function diasSemana(fecha_atencion) {
+  
+  //for (let i = 0; i < datosPrueba.length; i++) {
+    //fechas.push(fecha_atencion);
+  //}
+//}
+
+//console.log(fechas);
+
+
+ // Arreglo vacío para almacenar fechas
+
+//function diasSemana(datos) {
+  // Suponiendo que `datosPrueba` es un arreglo definido en otro lugar de tu código
+  // Ejemplo de datos de prueba
+ 
+  
+  //for (let i = 0; i < datos.length; i++) {
+    //const fechas = [];
+    //let fecha_atencion = datos[i].fecha_atencion;
+    
+    //let diasSemana = fecha_atencion.getDay(); 
+    //fechas.push(datos[i].fecha_atencion);
+    //console.log(datos[i].fecha);  
+
+    
+  //}
+  
+//}
+
+// Llamamos a la función con una fecha de atención específica
+//diasSemana(datosPrueba);
+
+
+function diasSemana(datos) {
+  // Suponiendo que `datosPrueba` es un arreglo definido en otro lugar de tu código
+  // Ejemplo de datos de prueba
+ 
+  const fechas = [];
+  for (let i = 0; i < datos.length; i++) {
+    fechaString = datos[i].fecha_atencion;
+    let fecha = new Date(fechaString);
+    let diaSemana = fecha.getDay();
+    
+    fechas.push(diaSemana[i]);
+    let horaLimite = new Date();
+    if(diaSemana >= 0 && diaSemana < 5) {
+      
+         
+        horaLimite.setHours(12, 30, 0); 
+    }else{  
+        horaLimite = new Date(); 
+        horaLimite.setHours(10, 0, 0);
+    }  
+      
+     
+
+    
+  }
+  
+}
+
+// Llamamos a la función con una fecha de atención específica
+diasSemana(datosPrueba);
